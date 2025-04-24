@@ -16,11 +16,13 @@ void main() {
 
     gl_FragColor = vec4(0. ,0., 0., 1.0);
 
-    for (int i = 0; i < 1000; i++) {
+    const float iter = 400.;
+
+    for (float i = 0.; i < iter; i++) {
         z = mult_complx(z, z) + c;
 
         if (length(z) > 2.) {
-            gl_FragColor = vec4(1. ,1., 1., 1.0);
+            gl_FragColor = vec4(1. - 1. / (i*i/iter +1.), 0., 0., 1.);
             break;
         }
     }
